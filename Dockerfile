@@ -1,7 +1,7 @@
-FROM ubuntu:18.04
-
-ENV LC_ALL=C.UTF-8
-ENV LANG=C.UTF-8
+#FROM ubuntu:18.04
+FROM handflucht/cvlib
+#ENV LC_ALL=C.UTF-8
+#ENV LANG=C.UTF-8
 
 #RUN apt-get update -y && apt-get install -y python3-pip 
 
@@ -13,9 +13,9 @@ RUN apt-get update \
 
 
 # get latest cvlib from github	
-WORKDIR /
+#WORKDIR /
 
-RUN git clone https://github.com/arunponnusamy/cvlib
+#RUN git clone https://github.com/arunponnusamy/cvlib
 
 # install cvlib and dependencies
 #WORKDIR /cvlib
@@ -27,9 +27,9 @@ RUN git clone https://github.com/arunponnusamy/cvlib
 ADD requirements.txt /app/
 
 WORKDIR /app
-RUN pip3 install --upgrade pip
-RUN pip3 install opencv-python-headless tensorflow
-RUN pip3 install cvlib
+#RUN pip3 install --upgrade pip
+#RUN pip3 install opencv-python-headless tensorflow
+#RUN pip3 install cvlib
 
 RUN /bin/bash -c "pip3 install --no-cache-dir -r requirements.txt"
 
