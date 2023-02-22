@@ -27,6 +27,7 @@ RUN git clone https://github.com/arunponnusamy/cvlib
 ADD requirements.txt /app/
 
 WORKDIR /app
+RUN pip3 install --upgrade pip
 RUN pip3 install opencv-python-headless tensorflow
 RUN pip3 install cvlib
 
