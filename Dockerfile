@@ -19,7 +19,7 @@ RUN git clone https://github.com/arunponnusamy/cvlib
 
 # install cvlib and dependencies
 WORKDIR /cvlib
-RUN pip install .
+RUN pip3 install .
 RUN apt install -y libsm6 libxext6 libxrender-dev
 
 
