@@ -5,6 +5,7 @@ import pickle
 from sklearn import preprocessing, svm
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
+import cvlib as cv
 
 app = Flask(__name__)
 
@@ -58,6 +59,7 @@ def upload():
 
     # Save the uploaded file
     filename = images.save(request.files['image'])
+    faces, confidences = cv.detect_face(filename)
     
 
     # Return the filename of the saved file
