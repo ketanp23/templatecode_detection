@@ -18,15 +18,17 @@ WORKDIR /
 RUN git clone https://github.com/arunponnusamy/cvlib
 
 # install cvlib and dependencies
-WORKDIR /cvlib
-RUN pip3 install .
-RUN apt install -y libsm6 libxext6 libxrender-dev
+#WORKDIR /cvlib
+#RUN pip3 install .
+#RUN apt install -y libsm6 libxext6 libxrender-dev
 
 
 # We copy just the requirements.txt first to leverage Docker cache
 ADD requirements.txt /app/
 
 WORKDIR /app
+RUN pip3 install opencv-python tensorflow
+RUN pip3 install cvlib
 
 RUN /bin/bash -c "pip3 install --no-cache-dir -r requirements.txt"
 
